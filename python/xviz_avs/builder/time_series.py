@@ -75,7 +75,7 @@ class XVIZTimeSeriesBuilder(XVIZBaseBuilder):
         elif isinstance(self._value, float):
             field_name = "doubles"
         else:
-            self._logger.error("The type of input value is not recognized!")
+            raise TypeError(f"The type of input value, {type(self._value)}, is not recognized! It must be str, bool, int, or float.")
 
         ts_entry = self._data.get(self._timestamp)
         if ts_entry:
